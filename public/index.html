@@ -243,17 +243,16 @@ footer{
 /* ===== NAME + VERIFIED CENTER FIX ===== */
 
 .profile-name {
-  text-align: center;
+  display: flex;
+  justify-content: center;   /* 🔴 यही missing था */
+  align-items: center;
+  gap: 8px;
+  font-size: 25px;
   font-weight: 700;
-  font-size: 26px; /* h1 से छोटा, clean look */
   margin: 10px 0 4px;
+  width: 100%;
 }
 
-.name-wrap {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
 
 /* verified badge exact look */
 .verified-badge {
