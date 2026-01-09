@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>Vijay Tripathi | Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 
 <style>
 *{
@@ -31,13 +33,13 @@ nav{
 nav a{
   cursor:pointer;
   text-decoration:none;
-  color:#333;
+  color:#2c5364;
   font-size:14px;
   font-weight:600;
 }
 nav a.active{
-  color:#0f5ef7;
-  border-bottom:2px solid #0f5ef7;
+  color:#2c5364;
+  border-bottom:2px solid #2c5364;
 }
 
 /* ===== COMMON ===== */
@@ -86,6 +88,189 @@ footer{
   padding:20px;
   color:#666;
 }
+
+.home-middle {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+/* ABOUT CARD */
+.about-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  margin-bottom: 60px;
+}
+
+.about-card h2 {
+  margin-bottom: 15px;
+}
+
+.about-card p {
+  color: #444;
+  line-height: 1.6;
+}
+
+.social-links {
+  margin-top: 15px;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.social i {
+  font-size: 18px;
+}
+
+/* Colors */
+.facebook {
+  color: #1877f2;
+  background: #e7f0ff;
+}
+
+.instagram {
+  color: #e1306c;
+  background: #ffe9f1;
+}
+
+.github {
+  color: #000;
+  background: #f2f2f2;
+}
+
+/* Hover */
+.social:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+
+
+/* PHOTOS */
+.photos-section h2 {
+  margin-bottom: 20px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+.site-footer {
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 14px;
+  color: #555;
+  background: transparent;
+}
+
+.site-footer strong {
+  font-weight: 700;
+  color: #000;
+}
+
+.verified i {
+  color: #1d9bf0; /* Blue verified color */
+  font-size: 14px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.profile-name {
+  font-size: 25px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.verified-badge {
+  width: 22px;
+  height: 22px;
+  background: #111;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verified-badge i {
+  color: #fff;
+  font-size: 12px;
+}
+
+
+
+@media (max-width: 600px) {
+  .profile-name {
+    font-size: 26px;
+  }
+
+  .verified-badge {
+    width: 20px;
+    height: 20px;
+  }
+
+  .verified-badge i {
+    font-size: 11px;
+  }
+}
+
+/* ===== NAME + VERIFIED CENTER FIX ===== */
+
+.profile-name {
+  text-align: center;
+  font-weight: 700;
+  font-size: 26px; /* h1 से छोटा, clean look */
+  margin: 10px 0 4px;
+}
+
+.name-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* verified badge exact look */
+.verified-badge {
+  width: 18px;
+  height: 18px;
+  background: #000;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verified-badge i {
+  color: #fff;
+  font-size: 11px;
+}
+
 </style>
 </head>
 
@@ -106,10 +291,66 @@ footer{
   <div class="banner">VT</div>
   <div class="card">
     <img src="https://via.placeholder.com/120" class="profile-img">
-    <h2>Vijay Tripathi</h2>
+    <h1 class="profile-name">
+  <span class="name-wrap">
+    Vijay Tripathi
+    <span class="verified-badge">
+      <i class="fas fa-check"></i>
+    </span>
+  </span>
+</h1>
+
+
     <p>BCA Student | Web Developer</p>
   </div>
 </div>
+
+
+<!-- ===== HOME MIDDLE SECTION ===== -->
+<section class="home-middle">
+
+  <!-- ABOUT CARD -->
+  <div class="about-card">
+    <h2>About</h2>
+    <p>
+      <strong>Vijay Tripathi</strong> is a BCA student and aspiring Web Developer.
+      I focus on building clean, responsive websites and learning modern web technologies.
+    </p>
+     <div class="social-links">
+    <a href="https://facebook.com/" target="_blank" class="social facebook">
+    <i class="fab fa-facebook-f"></i>
+    <span>Facebook</span>
+    </a>
+
+    <a href="https://instagram.com/" target="_blank" class="social instagram">
+    <i class="fab fa-instagram"></i>
+    <span>Instagram</span>
+    </a>
+
+    <a href="https://github.com/codervijaytripathi" target="_blank" class="social github">
+    <i class="fab fa-github"></i>
+    <span>GitHub</span>
+    </a>
+    </div>
+    
+  </div>
+
+  <!-- PHOTOS GRID -->
+  <div class="photos-section">
+    <h2>My Photos</h2>
+
+    <div class="photo-grid">
+      <img src="images/p1.jpg" alt="photo">
+      <img src="images/p2.jpg" alt="photo">
+      <img src="images/p3.jpg" alt="photo">
+      <img src="images/p4.jpg" alt="photo">
+      <img src="images/p5.jpg" alt="photo">
+      <img src="images/p6.jpg" alt="photo">
+    </div>
+  </div>
+
+</section>
+
 
 <!-- ===== ABOUT ===== -->
 <div id="about" class="section">
@@ -158,9 +399,17 @@ footer{
   <p>WhatsApp: +91 XXXXXXXX</p>
 </div>
 
-<footer>
-  © 2026 Vijay Tripathi
-</footer>
+<footer class="site-footer">
+  <p>
+   © 2026 | Designed by 
+    <strong>Vijay Tripathi</strong>
+    <span class="verified">
+      <i class="fas fa-check-circle"></i>
+    </span>
+  </p>
+  </footer>
+
+
 
 <!-- ===== JS ===== -->
 <script>
@@ -185,4 +434,3 @@ function showTab(tabId){
 
 </body>
 </html>
-
