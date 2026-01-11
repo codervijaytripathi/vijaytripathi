@@ -163,8 +163,9 @@ nav a.active, nav a:hover {
 .facebook { color: #1877f2; background: #e7f3ff; }
 .instagram { color: #e1306c; background: #fff0f5; }
 .github { color: #000; background: #f2f2f2; }
+.linkedin { color: #0077b5; background: #e0f3ff; }
 
-/* ===== PHOTO GRID ===== */
+/* ===== PHOTO GRID UPDATED ===== */
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -176,9 +177,20 @@ nav a.active, nav a:hover {
   width: 100%;
   aspect-ratio: 1/1;
   border-radius: 10px;
-  object-fit: cover;
+  
+  /* Sir katne se rokne ke liye ye badlav */
+  object-fit: cover; 
+  object-position: top; /* Isse focus sir/top part par rahega */
+  
+  /* Thoda styling ke liye (Optional) */
+  transition: transform 0.3s ease;
+  border: 1px solid #eee;
 }
 
+/* Jab koi photo par click/hover kare toh thodi zoom ho */
+.photo-grid img:hover {
+  transform: scale(1.02);
+}
 /* ===== FOOTER ===== */
 .site-footer {
   text-align: center;
@@ -211,7 +223,7 @@ nav a.active, nav a:hover {
 <div id="home" class="section" style="display:block">
   <div class="banner">VT</div>
   <div class="card">
-    <img src="images/profile.jpg" class="profile-img" onerror="this.src='https://via.placeholder.com/100'">
+    <img src="https://i.ibb.co/8LxhJ5qM/20260111-135349.png" class="profile-img" alt="Vijay Tripathi">
     <h1 class="profile-name">
       Vijay Tripathi
       <span class="verified-badge"><i class="fas fa-check"></i></span>
@@ -227,19 +239,21 @@ nav a.active, nav a:hover {
       </p>
       
       <div class="social-links">
-        <a href="#" class="social facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
-        <a href="#" class="social instagram"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="#" class="social github"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.facebook.com/share/1DUqsDfSYy/" class="social facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="https://www.instagram.com/thevijaytripathi?igsh=ZnZyaHQyaDNuazA2" class="social instagram"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://github.com/codervijaytripathi" class="social github"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://github.com/codervijaytripathi" class="social linkedin"><i class="fab fa-linkedin "></i> linkedin</a>
+
       </div>
     </div>
 
     <div class="about-card">
       <h3 style="margin-bottom:10px;">My Photos</h3>
       <div class="photo-grid">
-        <img src="images/p1.jpg" alt="photo" onerror="this.src='https://via.placeholder.com/150'">
-        <img src="images/p2.jpg" alt="photo" onerror="this.src='https://via.placeholder.com/150'">
-        <img src="images/p3.jpg" alt="photo" onerror="this.src='https://via.placeholder.com/150'">
-        <img src="images/p4.jpg" alt="photo" onerror="this.src='https://via.placeholder.com/150'">
+       <img src="https://i.ibb.co/RGG5zkwN/1768107045265.png" class="profile-img" alt="Vijay Tripathi">
+        <img src="https://i.ibb.co/ccTXw8JP/IMG-20251217-164342-710.jpg"class="profile-img" alt="Vijay Tripathi">
+        <img src="https://i.ibb.co/9HXRVpcc/IMG-20251217-164333-879.jpg" class="profile-img" alt="Vijay Tripathi">
+        <img src="https://i.ibb.co/8gdCrN0J/IMG-20251217-164245-710.jpg" class="profile-img" alt="Vijay Tripathi">
       </div>
     </div>
   </div>
