@@ -6,19 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-
 <style>
-/* ===== RESET ===== */
+/* ===== RESET & ROOT ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-  background: #f4f6f8;
-  color: #222;
+  background: #f0f2f5;
+  color: #1c1e21;
 }
 
 /* ===== NAVBAR ===== */
@@ -26,447 +25,253 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.95);
   display: flex;
   justify-content: center;
-  gap: 22px;
-  padding: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  gap: 15px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
 }
 
 nav a {
   text-decoration: none;
-  color: #333;
-  font-size: 14px;
+  color: #65676b;
+  font-size: 13px;
   font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-nav a.active,
-nav a:hover {
-  color: #2c5364;
-  border-bottom: 2px solid #2c5364;
-  padding-bottom: 2px;
+nav a.active, nav a:hover {
+  color: #0084ff;
 }
 
-/* ===== COMMON SECTION ===== */
+/* ===== HOME SECTION ===== */
 .section {
   display: none;
-  background: #fff;
-  width: 92%;
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 28px;
-  border-radius: 14px;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* ===== HOME ===== */
+/* BANNER & CARD */
 .banner {
-  height: 180px;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  height: 160px;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 38px;
-  font-weight: 700;
+  color: rgba(255,255,255,0.2);
+  font-size: 60px;
+  font-weight: 900;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
-/* CARD */
 .card {
   background: #fff;
-  width: 90%;
-  max-width: 420px;
-  margin: -55px auto 20px;
-  padding: 16px;
-  border-radius: 14px;
+  width: 92%;
+  margin: -40px auto 20px;
+  padding: 20px 15px;
+  border-radius: 15px;
   text-align: center;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  position: relative;
 }
 
-/* PROFILE IMAGE */
 .profile-img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   border: 4px solid #fff;
-  margin-top: -75px;
+  margin-top: -70px;
   object-fit: cover;
+  background: #ddd;
 }
 
-/* NAME + VERIFIED */
+/* VERIFIED TICK FIX */
 .profile-name {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   margin-top: 10px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 6px;
 }
 
 .verified-badge {
+  background-color: #000;
   width: 18px;
   height: 18px;
-  background: #000;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .verified-badge i {
   color: #fff;
-  font-size: 11px;
+  font-size: 10px;
 }
 
-/* SUBTITLE */
 .card p {
+  color: #65676b;
   font-size: 14px;
-  color: #555;
   margin-top: 4px;
 }
 
-/* ===== HOME MIDDLE ===== */
-.home-middle {
-  max-width: 1000px;
-  margin: 50px auto;
-  padding: 0 18px;
+/* ===== ABOUT & SOCIAL ===== */
+.content-wrapper {
+  width: 92%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* ===== ABOUT CARD ===== */
 .about-card {
   background: #fff;
-  padding: 28px;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  margin-bottom: 50px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
 }
 
-.about-card h2 {
-  font-size: 22px;
-  margin-bottom: 14px;
-}
-
-.about-card p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #444;
-}
-
-/* ===== SOCIAL LINKS ===== */
-/* Container ko align karne ke liye */
 .social-links {
-    display: flex;         /* Ek row mein laane ke liye */
-    flex-wrap: nowrap;     /* Niche girne se rokne ke liye */
-    gap: 8px;              /* Buttons ke beech ki dori */
-    justify-content: start; /* Left side se start karne ke liye */
-    width: 100%;
-    margin-top: 15px;
-}
-
-/* Buttons ka size control karne ke liye */
-.social-links a {
     display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 13px;       /* Mobile par thoda chhota font rakhein */
-    font-weight: bold;
-    white-space: nowrap;   /* Text ko wrap hone se rokne ke liye */
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-top: 20px;
+    overflow-x: auto;
+    padding-bottom: 5px;
 }
 
+/* Button Styling */
 .social {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 12px;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: 0.25s ease;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 15px;
+  border-radius: 20px;
+  white-space: nowrap;
 }
 
-.social i {
-  font-size: 17px;
-}
+.facebook { color: #1877f2; background: #e7f3ff; }
+.instagram { color: #e1306c; background: #fff0f5; }
+.github { color: #000; background: #f2f2f2; }
 
-.social:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-
-.facebook {
-  color: #1877f2;
-  background: #e7f0ff;
-}
-
-.instagram {
-  color: #e1306c;
-  background: #ffe9f1;
-}
-
-.github {
-  color: #000;
-  background: #f2f2f2;
-}
-
-/* ===== PHOTOS ===== */
-.photos-section h2 {
-  margin-bottom: 18px;
-}
-
+/* ===== PHOTO GRID ===== */
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 15px;
 }
 
 .photo-grid img {
   width: 100%;
-  border-radius: 12px;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
   object-fit: cover;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
 /* ===== FOOTER ===== */
 .site-footer {
   text-align: center;
-  padding: 18px 10px;
-  font-size: 14px;
-  color: #555;
+  padding: 30px 10px;
+  color: #65676b;
+  font-size: 13px;
 }
 
-.site-footer strong {
-  color: #000;
-  font-weight: 700;
-}
-
-/* ===== MOBILE PERFECT FIX ===== */
+/* ===== MOBILE ADJUSTMENTS ===== */
 @media (max-width: 600px) {
-
-  .banner {
-    height: 140px;
-    font-size: 26px;
-  }
-
-  .card {
-    margin: -40px auto 16px;
-    padding: 14px;
-  }
-
-  .profile-img {
-    width: 96px;
-    height: 96px;
-    margin-top: -58px;
-  }
-
-  .profile-name {
-    font-size: 21px;
-  }
-
-  .verified-badge {
-    width: 16px;
-    height: 16px;
-  }
-
-  .verified-badge i {
-    font-size: 10px;
-  }
-
-  .card p {
-    font-size: 13px;
-  }
-
-  .about-card {
-    padding: 20px;
-    margin-bottom: 40px;
-  }
-
-  .about-card h2 {
-    font-size: 20px;
-  }
-
-  .about-card p {
-    font-size: 14px;
-  }
-
-  .social {
-    font-size: 13px;
-    padding: 7px 12px;
-  }
-
-  .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .site-footer {
-    font-size: 13px;
-  }
+  .banner { height: 120px; font-size: 40px; }
+  .card { width: 95%; padding: 15px 10px; }
+  .profile-name { font-size: 20px; }
+  nav { gap: 10px; padding: 12px 5px; }
+  nav a { font-size: 12px; }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- ===== NAVBAR ===== -->
-<nav>
+<nav id="navbar">
   <a onclick="showTab('home')" class="active">Home</a>
   <a onclick="showTab('about')">About</a>
   <a onclick="showTab('skills')">Skills</a>
-  <a onclick="showTab('services')">Services</a>
   <a onclick="showTab('portfolio')">Portfolio</a>
   <a onclick="showTab('contact')">Contact</a>
 </nav>
 
-<!-- ===== HOME ===== -->
 <div id="home" class="section" style="display:block">
   <div class="banner">VT</div>
   <div class="card">
-    <img src="https://via.placeholder.com/120" class="profile-img">
+    <img src="images/profile.jpg" class="profile-img" onerror="this.src='https://via.placeholder.com/100'">
     <h1 class="profile-name">
-  <span class="name-wrap">
-    Vijay Tripathi
-    <span class="verified-badge">
-      <i class="fas fa-check"></i>
-
-
-    </span>
-  </span>
-</h1>
-
-
+      Vijay Tripathi
+      <span class="verified-badge"><i class="fas fa-check"></i></span>
+    </h1>
     <p>BCA Student | Web Developer</p>
   </div>
-</div>
 
-
-<!-- ===== HOME MIDDLE SECTION ===== -->
-<section class="home-middle">
-
-  <!-- ABOUT CARD -->
-  <div class="about-card">
-    <h2>About</h2>
-    <p>
-      <strong>Vijay Tripathi</strong> is a BCA student and aspiring Web Developer.
-      I focus on building clean, responsive websites and learning modern web technologies.
-    </p>
-     <div class="social-links">
-    <a href="https://facebook.com/" target="_blank" class="social facebook">
-    <i class="fab fa-facebook-f"></i>
-    <span>Facebook</span>
-    </a>
-
-    <a href="https://instagram.com/" target="_blank" class="social instagram">
-    <i class="fab fa-instagram"></i>
-    <span>Instagram</span>
-    </a>
-
-    <a href="https://github.com/codervijaytripathi" target="_blank" class="social github">
-    <i class="fab fa-github"></i>
-    <span>GitHub</span>
-    </a>
+  <div class="content-wrapper">
+    <div class="about-card">
+      <h3 style="margin-bottom:10px;">About</h3>
+      <p style="font-size:14px; color:#444; line-height:1.5;">
+        <strong>Vijay Tripathi</strong> is a BCA student and aspiring Web Developer focused on building clean, responsive websites.
+      </p>
+      
+      <div class="social-links">
+        <a href="#" class="social facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="#" class="social instagram"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="#" class="social github"><i class="fab fa-github"></i> GitHub</a>
+      </div>
     </div>
-    
-  </div>
 
-  <!-- PHOTOS GRID -->
-  <div class="photos-section">
-    <h2>My Photos</h2>
-
-    <div class="photo-grid">
-      <img src="images/p1.jpg" alt="photo">
-      <img src="images/p2.jpg" alt="photo">
-      <img src="images/p3.jpg" alt="photo">
-      <img src="images/p4.jpg" alt="photo">
-      <img src="images/p5.jpg" alt="photo">
-      <img src="images/p6.jpg" alt="photo">
+    <div class="about-card">
+      <h3 style="margin-bottom:10px;">My Photos</h3>
+      <div class="photo-grid">
+        <img src="images/p1.jpg" alt="photo" onerror="this.src='https://via.placeholder.com/150'">
+        <img src="images/p2.jpg" alt="photo" onerror="this.src='https://via.placeholder.com/150'">
+        <img src="images/p3.jpg" alt="photo" onerror="this.src='https://via.placeholder.com/150'">
+        <img src="images/p4.jpg" alt="photo" onerror="this.src='https://via.placeholder.com/150'">
+      </div>
     </div>
   </div>
-
-</section>
-
-
-<!-- ===== ABOUT ===== -->
-<div id="about" class="section">
-  <h2>About Me</h2>
-  <p>
-    I am a BCA student and aspiring web developer.
-    I create clean and responsive websites using HTML, CSS and JavaScript.
-  </p>
 </div>
 
-<!-- ===== SKILLS ===== -->
-<div id="skills" class="section">
-  <h2>Skills</h2>
-  <ul>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-    <li>Firebase Hosting</li>
-    <li>GitHub</li>
-  </ul>
+<div id="about" class="section content-wrapper" style="padding:20px;">
+  <div class="about-card"><h2>About Me</h2><p>BCA Student from India...</p></div>
 </div>
 
-<!-- ===== SERVICES ===== -->
-<div id="services" class="section">
-  <h2>Services</h2>
-  <ul>
-    <li>Portfolio Websites</li>
-    <li>Landing Pages</li>
-    <li>Basic Web Design</li>
-  </ul>
+<div id="skills" class="section content-wrapper" style="padding:20px;">
+  <div class="about-card"><h2>Skills</h2><p>HTML, CSS, JS, GitHub, Firebase</p></div>
 </div>
 
-<!-- ===== PORTFOLIO ===== -->
-<div id="portfolio" class="section">
-  <h2>Portfolio</h2>
-  <p>
-    🔹 Personal Portfolio Website  
-    🔹 Firebase Hosted Projects  
-  </p>
+<div id="portfolio" class="section content-wrapper" style="padding:20px;">
+  <div class="about-card"><h2>Portfolio</h2><p>Personal projects hosted on Firebase...</p></div>
 </div>
 
-<!-- ===== CONTACT ===== -->
-<div id="contact" class="section">
-  <h2>Contact Me</h2>
-  <p>Email: vijay@example.com</p>
-  <p>WhatsApp: +91 XXXXXXXX</p>
+<div id="contact" class="section content-wrapper" style="padding:20px;">
+  <div class="about-card"><h2>Contact</h2><p>Email: vijay@example.com</p></div>
 </div>
 
 <footer class="site-footer">
-  <p>
-   © 2026 | Designed by 
-    <strong>Vijay Tripathi</strong>
-    <span class="verified">
-      <i class="fas fa-check-circle"></i>
-    </span>
-  </p>
-  </footer>
+  <p>© 2026 | Designed by <strong>Vijay Tripathi</strong></p>
+</footer>
 
-
-
-<!-- ===== JS ===== -->
 <script>
 function showTab(tabId){
-  // hide all sections
-  document.querySelectorAll('.section').forEach(sec=>{
-    sec.style.display = 'none';
-  });
-
-  // remove active class
-  document.querySelectorAll('nav a').forEach(link=>{
-    link.classList.remove('active');
-  });
-
-  // show selected section
+  document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
+  document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
   document.getElementById(tabId).style.display = 'block';
-
-  // add active class to clicked tab
-  event.target.classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo(0,0);
 }
 </script>
 
