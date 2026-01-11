@@ -8,119 +8,158 @@
 
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
-body{
-  background:#f4f6f8;
-  color:#222;
+
+body {
+  background: #f4f6f8;
+  color: #222;
 }
 
 /* ===== NAVBAR ===== */
-nav{
-  position:sticky;
-  top:0;
-  background:#fff;
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  padding:12px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.1);
-  z-index:1000;
-}
-nav a{
-  text-decoration:none;
-  color:#333;
-  font-size:14px;
-  font-weight:600;
-}
-nav a:hover{
-  color:#2c5364;
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  padding: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
-/* ===== COMMON ===== */
-.section{
-  display:none; /* IMPORTANT */
-  background:white;
-  width:90%;
-  max-width:800px;
-  margin:30px auto;
-  padding:25px;
-  border-radius:12px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav a.active,
+nav a:hover {
+  color: #2c5364;
+  border-bottom: 2px solid #2c5364;
+  padding-bottom: 2px;
+}
+
+/* ===== COMMON SECTION ===== */
+.section {
+  display: none;
+  background: #fff;
+  width: 92%;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
 }
 
 /* ===== HOME ===== */
-.banner{
-  height:200px;
-  background:linear-gradient(to right,#0f2027,#203a43,#2c5364);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-size:40px;
+.banner {
+  height: 180px;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 38px;
+  font-weight: 700;
 }
 
-.card{
-  background:white;
-  width:90%;
-  max-width:420px;
-  margin:-60px auto 20px;
-  padding:12px;
-  border-radius:12px;
-  text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
-}
-.profile-img{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  border:4px solid white;
-  margin-top:-80px;
+/* CARD */
+.card {
+  background: #fff;
+  width: 90%;
+  max-width: 420px;
+  margin: -55px auto 20px;
+  padding: 16px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
 }
 
-footer{
-  text-align:center;
-  padding:20px;
-  color:#666;
+/* PROFILE IMAGE */
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  margin-top: -75px;
+  object-fit: cover;
 }
 
+/* NAME + VERIFIED */
+.profile-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.verified-badge {
+  width: 18px;
+  height: 18px;
+  background: #000;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verified-badge i {
+  color: #fff;
+  font-size: 11px;
+}
+
+/* SUBTITLE */
+.card p {
+  font-size: 14px;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* ===== HOME MIDDLE ===== */
 .home-middle {
-  max-width: 1100px;
-  margin: 60px auto;
-  padding: 0 20px;
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 18px;
 }
 
-/* ABOUT CARD */
+/* ===== ABOUT CARD ===== */
 .about-card {
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
+  background: #fff;
+  padding: 28px;
+  border-radius: 14px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
 .about-card h2 {
-  margin-bottom: 15px;
+  font-size: 22px;
+  margin-bottom: 14px;
 }
 
 .about-card p {
-  color: #444;
+  font-size: 15px;
   line-height: 1.6;
+  color: #444;
 }
 
-.social-links {
-  margin-top: 15px;
-}
-
+/* ===== SOCIAL LINKS ===== */
 .social-links {
   display: flex;
-  gap: 16px;
-  margin-top: 15px;
+  gap: 14px;
   flex-wrap: wrap;
+  margin-top: 18px;
 }
 
 .social {
@@ -129,17 +168,21 @@ footer{
   gap: 8px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   padding: 8px 14px;
   border-radius: 8px;
-  transition: 0.3s ease;
+  transition: 0.25s ease;
 }
 
 .social i {
-  font-size: 18px;
+  font-size: 17px;
 }
 
-/* Colors */
+.social:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
 .facebook {
   color: #1877f2;
   background: #e7f0ff;
@@ -155,118 +198,98 @@ footer{
   background: #f2f2f2;
 }
 
-/* Hover */
-.social:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-
-
-
-/* PHOTOS */
+/* ===== PHOTOS ===== */
 .photos-section h2 {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 15px;
+  gap: 14px;
 }
 
 .photo-grid img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
   object-fit: cover;
   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
+
+/* ===== FOOTER ===== */
 .site-footer {
   text-align: center;
-  padding: 20px 10px;
+  padding: 18px 10px;
   font-size: 14px;
   color: #555;
-  background: transparent;
 }
 
 .site-footer strong {
-  font-weight: 700;
   color: #000;
-}
-
-.verified i {
-  color: #1d9bf0; /* Blue verified color */
-  font-size: 14px;
-  margin-left: 4px;
-  vertical-align: middle;
-}
-.profile-name {
-  font-size: 25px;
   font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
-.verified-badge {
-  width: 22px;
-  height: 22px;
-  background: #111;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.verified-badge i {
-  color: #fff;
-  font-size: 12px;
-}
-
-
-
+/* ===== MOBILE PERFECT FIX ===== */
 @media (max-width: 600px) {
-  .profile-name {
+
+  .banner {
+    height: 140px;
     font-size: 26px;
   }
 
+  .card {
+    margin: -40px auto 16px;
+    padding: 14px;
+  }
+
+  .profile-img {
+    width: 96px;
+    height: 96px;
+    margin-top: -58px;
+  }
+
+  .profile-name {
+    font-size: 21px;
+  }
+
   .verified-badge {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
   }
 
   .verified-badge i {
-    font-size: 11px;
+    font-size: 10px;
   }
-}
 
-/* ===== NAME + VERIFIED CENTER FIX ===== */
+  .card p {
+    font-size: 13px;
+  }
 
-.profile-name {
-  display: flex;
-  justify-content: center;   /* 🔴 यही missing था */
-  align-items: center;
-  gap: 8px;
-  font-size: 25px;
-  font-weight: 700;
-  margin: 10px 0 4px;
-  width: 100%;
-}
+  .about-card {
+    padding: 20px;
+    margin-bottom: 40px;
+  }
 
+  .about-card h2 {
+    font-size: 20px;
+  }
 
-/* verified badge exact look */
-.verified-badge {
-  width: 18px;
-  height: 18px;
-  background: #000;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+  .about-card p {
+    font-size: 14px;
+  }
 
-.verified-badge i {
-  color: #fff;
-  font-size: 11px;
+  .social {
+    font-size: 13px;
+    padding: 7px 12px;
+  }
+
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .site-footer {
+    font-size: 13px;
+  }
 }
 
 </style>
@@ -294,6 +317,8 @@ footer{
     Vijay Tripathi
     <span class="verified-badge">
       <i class="fas fa-check"></i>
+
+
     </span>
   </span>
 </h1>
