@@ -155,14 +155,26 @@ nav a:hover {
 }
 
 /* ===== SOCIAL LINKS ===== */
+/* Container ko align karne ke liye */
 .social-links {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin-top: 18px;
+    display: flex;         /* Ek row mein laane ke liye */
+    flex-wrap: nowrap;     /* Niche girne se rokne ke liye */
+    gap: 8px;              /* Buttons ke beech ki dori */
+    justify-content: start; /* Left side se start karne ke liye */
+    width: 100%;
+    margin-top: 15px;
 }
-.social{
-  justify-content: center;
+
+/* Buttons ka size control karne ke liye */
+.social-links a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;       /* Mobile par thoda chhota font rakhein */
+    font-weight: bold;
+    white-space: nowrap;   /* Text ko wrap hone se rokne ke liye */
 }
 
 .social {
