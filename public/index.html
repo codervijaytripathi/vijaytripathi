@@ -42,6 +42,21 @@ nav a {
   cursor: pointer;
   transition: 0.3s;
 }
+  /* List ki default setting hatane ke liye */
+nav ul {
+    list-style: none;      /* Dots hatane ke liye */
+    display: flex;         /* Ek line mein lane ke liye */
+    flex-direction: row;   /* Side-by-side (Horizontal) karne ke liye */
+    gap: 20px;             /* Buttons ke beech space */
+    margin: 0;
+    padding: 0;
+    justify-content: center; /* Center mein rakhne ke liye */
+}
+
+/* List items ke beech ka gap control karne ke liye */
+nav li {
+    display: inline-block;
+}
 
 nav a.active, nav a:hover {
   color: #0084ff;
