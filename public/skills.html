@@ -76,7 +76,13 @@
     50% { transform: scale(1.1); }
     100% { transform: scale(1); }
 }
-
+/* ===== FOOTER ===== */
+.site-footer {
+  text-align: center;
+  padding: 30px 10px;
+  color: #65676b;
+  font-size: 13px;
+}
 </style>
 
 <div class="skills-page-wrapper">
@@ -158,6 +164,19 @@
         <h3><i class="fas fa-sync-alt"></i> Currently Learning</h3>
         <p>I am continuously improving my skills. Currently diving deep into <b>React.js</b> and <b>Advanced CSS Animations</b> to build more dynamic web experiences.</p>
     </section>
+    <footer class="site-footer">
+  <p>© 2026 | Designed by <strong>Vijay Tripathi</strong></p>
+</footer>
+
+<script>
+function showTab(tabId){
+  document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
+  document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+  document.getElementById(tabId).style.display = 'block';
+  event.currentTarget.classList.add('active');
+  window.scrollTo(0,0);
+}
+</script>
 </div>
 
 </body>
