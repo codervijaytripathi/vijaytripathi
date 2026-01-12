@@ -1,1 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Vijay Tripathi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
 
+<style>
+
+.portfolio-page-wrapper {
+    max-width: 960px; /* Thoda zyada width projects ke liye */
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+.portfolio-header { text-align: center; margin-bottom: 40px; }
+.portfolio-header h1 { font-size: 32px; margin-bottom: 10px; color: #000; }
+.portfolio-header p { font-size: 16px; color: #666; }
+
+/* Projects Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Projects ko side-by-side rakhega */
+    gap: 30px; /* Projects ke beech ki doori */
+    margin-bottom: 40px;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    overflow: hidden; /* Image ke corners ko round karne ke liye */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for image */
+    object-fit: cover; /* Image ko stretch hone se bachane ke liye */
+}
+
+.project-details {
+    padding: 20px;
+}
+
+.project-details h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.project-details p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.project-tags {
+    margin-bottom: 15px;
+}
+
+.project-tags span {
+    display: inline-block;
+    background: #e7f3ff;
+    color: #0077b5;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-right: 8px;
+    margin-bottom: 5px;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.live-link, .github-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.live-link {
+    background: #0077b5;
+    color: #fff;
+}
+
+.live-link:hover {
+    background: #005691;
+}
+
+.github-link {
+    background: #333;
+    color: #fff;
+}
+
+.github-link:hover {
+    background: #000;
+}
+
+/* Call to Action Section */
+.portfolio-cta {
+    text-align: center;
+    background: #f8f9fa;
+    padding: 40px 20px;
+    border-radius: 15px;
+    margin-top: 40px;
+}
+
+.portfolio-cta h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.portfolio-cta p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Mobile par buttons niche aa jayenge */
+}
+
+.github-profile-btn, .contact-me-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.github-profile-btn {
+    background: #212121; /* Darker GitHub */
+    color: #fff;
+    border: 2px solid #212121;
+}
+
+.github-profile-btn:hover {
+    background: #000;
+    border-color: #000;
+    transform: translateY(-3px);
+}
+
+.contact-me-btn {
+    background: #0077b5; /* LinkedIn Blue */
+    color: #fff;
+    border: 2px solid #0077b5;
+}
+
+.contact-me-btn:hover {
+    background: #005691;
+    border-color: #005691;
+    transform: translateY(-3px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* Mobile par projects ek ke niche ek */
+    }
+    .cta-buttons {
+        flex-direction: column;
+    }
+}
+/* ===== FOOTER ===== */
+.site-footer {
+  text-align: center;
+  padding: 30px 10px;
+  color: #65676b;
+  font-size: 13px;
+}
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Vijay Tripathi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="portfolio-page-wrapper">
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    
+    <header class="portfolio-header">
+        <h1>My Projects</h1>
+        <p>A collection of my web development work and learning experiences.</p>
+    </header>
+
+    <div class="portfolio-grid">
+        <div class="project-card">
+            <img src="https://i.ibb.co/228shNm/IMG-20260112-160529-491.jpg" alt="Project 1 Thumbnail"> 
+            <div class="project-details">
+                <h3>Digital Service Portal (All-In-One)</h3>
+                <p>A multi-service platform for government form filling (PAN, Aadhar, SSSM) and academic assistance. Features a user-friendly data submission flow</p>
+                <div class="project-tags">
+                    <span>HTML</span><span>CSS</span><span>Responsive</span>
+                </div>
+                <div class="project-links">
+                    <a href="https:allinone.harshtiwari.in" target="_blank" class="live-link"><i class="fas fa-eye"></i> Live Demo</a>
+                    <a href="https://github.com/yourusername/project1" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="project2-thumbnail.jpg" alt="Project 2 Thumbnail"> 
+            <div class="project-details">
+                <h3>Interactive Calculator</h3>
+                <p>A functional calculator application built with HTML, CSS, and vanilla JavaScript. Features basic arithmetic operations.</p>
+                <div class="project-tags">
+                    <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://yourproject2live.com" target="_blank" class="live-link"><i class="fas fa-eye"></i> Live Demo</a>
+                    <a href="https://github.com/yourusername/project2" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="project3-thumbnail.jpg" alt="Project 3 Thumbnail"> 
+            <div class="project-details">
+                <h3>Simple To-Do List</h3>
+                <p>A basic To-Do List app to manage daily tasks. Developed using HTML, CSS, and JavaScript with local storage.</p>
+                <div class="project-tags">
+                    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Local Storage</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://yourproject3live.com" target="_blank" class="live-link"><i class="fas fa-eye"></i> Live Demo</a>
+                    <a href="https://github.com/yourusername/project3" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    <section class="portfolio-cta">
+        <h3>Ready to see more?</h3>
+        <p>Explore my full collection of projects on GitHub or connect with me.</p>
+        <div class="cta-buttons">
+            <a href="https://github.com/codervijaytripathi" target="_blank" class="github-profile-btn"><i class="fab fa-github"></i> My GitHub Profile</a>
+            <a href="contact.html" class="contact-me-btn"><i class="fas fa-envelope"></i> Contact Me</a>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>
+
+<footer class="site-footer">
+  <p>© 2026 | Designed by <strong>Vijay Tripathi</strong></p>
+</footer>
+
+<script>
+function showTab(tabId){
+  document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
+  document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+  document.getElementById(tabId).style.display = 'block';
+  event.currentTarget.classList.add('active');
+  window.scrollTo(0,0);
+}
+</script>
+
+</body>
+</html>
