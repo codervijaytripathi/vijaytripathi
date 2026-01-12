@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Vijay Tripathi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+
+<style>
+  /* About Page Specific Styles */
+.about-page-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.back-btn {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.about-hero h1 {
+    font-size: 32px;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.tagline {
+    color: #0077b5;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.content-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Timeline UI */
+.timeline {
+    border-left: 2px solid #eee;
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -27px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: #0077b5;
+    border-radius: 50%;
+}
+
+.year {
+    font-size: 12px;
+    color: #999;
+    display: block;
+}
+
+/* Download Button */
+.resume-section {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #000;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+/* ===== FOOTER ===== */
+.site-footer {
+  text-align: center;
+  padding: 30px 10px;
+  color: #65676b;
+  font-size: 13px;
+}
+</style>
+
+
+<div class="about-page-container">
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+    <section class="about-hero">
+        <h1>About Me</h1>
+        <p class="tagline">BCA Student & Web Developer</p>
+    </section>
+
+    <div class="content-card">
+        <h3><i class="fas fa-user"></i> Who am I?</h3>
+        <p>Hey, I'm <b>Vijay Tripathi</b>! 👋 I am currently pursuing my <b>BCA</b> and I have a deep passion for Web Development. I love the challenge of taking a complex problem and turning it into a beautiful, functional website. My goal is to build digital experiences that are not only fast but also easy for everyone to use.</p>
+    </div>
+
+    <div class="content-card">
+        <h3><i class="fas fa-graduation-cap"></i> My Education</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="year">2023 - Present</span>
+                <h4>Bachelor of Computer Applications (BCA)</h4>
+                <p>[Harmilap institute of Computer & Technology shahdol]</p>
+            </div>
+            <div class="timeline-item">
+                <span class="year">2019 - 2023</span>
+                <h4>Intermediate (12th)</h4>
+                <p>[Govt.Higher Secondry School Khannoudhi district shahdol mp]</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="resume-section">
+        <h3>Need my full details?</h3>
+        <p>You can download my updated resume below.</p>
+        <a href="YOUR_RESUME_LINK.pdf" class="download-btn" download>
+            <i class="fas fa-file-download"></i> Download Resume
+        </a>
+    </div>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 | Designed by <strong>Vijay Tripathi</strong></p>
+</footer>
+
+<script>
+function showTab(tabId){
+  document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
+  document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+  document.getElementById(tabId).style.display = 'block';
+  event.currentTarget.classList.add('active');
+  window.scrollTo(0,0);
+}
+</script>
+
+</body>
+</html>
