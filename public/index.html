@@ -70,7 +70,7 @@ nav a.active, nav a:hover {
 }
 
 .card {
-  background: #fff;
+  background: #ffffff;
   width: 92%;
   margin: -40px auto 20px;
   padding: 20px 15px;
@@ -169,14 +169,15 @@ nav a.active, nav a:hover {
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-top: 15px;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .photo-grid img {
+  height: 300px;
   width: 100%;
   aspect-ratio: 1/1;
-  border-radius: 10px;
+  border-radius: 13px;
   
   /* Sir katne se rokne ke liye ye badlav */
   object-fit: cover; 
@@ -207,6 +208,9 @@ nav a.active, nav a:hover {
   nav { gap: 10px; padding: 12px 5px; }
   nav a { font-size: 12px; }
 }
+.skills-section { text-align: center; margin: 30px 0; }
+.skills-icons { font-size: 40px; display: flex; justify-content: center; gap: 20px; color: #555; }
+.skills-icons i:hover { color: #0077b5; transform: scale(1.2); transition: 0.3s; }
 </style>
 </head>
 
@@ -235,7 +239,7 @@ nav a.active, nav a:hover {
     <div class="about-card">
       <h3 style="margin-bottom:10px;">About</h3>
       <p style="font-size:14px; color:#444; line-height:1.5;">
-        <strong>Vijay Tripathi</strong> is a BCA student and aspiring Web Developer focused on building clean, responsive websites.
+        <strong>Vijay Tripathi</strong> "Passionate <B>BCA student</B> and aspiring <B>Web Developer</B> with a knack for building clean, user-friendly, and responsive websites. I love turning complex problems into simple, beautiful interface designs. Constantly learning new technologies to stay ahead in the digital world."
       </p>
       
       <div class="social-links">
@@ -250,18 +254,22 @@ nav a.active, nav a:hover {
     <div class="about-card">
       <h3 style="margin-bottom:10px;">My Photos</h3>
       <div class="photo-grid">
-       <img src="https://i.ibb.co/RGG5zkwN/1768107045265.png" class="profile-img" alt="Vijay Tripathi">
+       <img src="https://i.ibb.co/5gfv4sYq/IMG-20260112-112555-580.jpg" class="profile-img" alt="Vijay Tripathi">
         <img src="https://i.ibb.co/ccTXw8JP/IMG-20251217-164342-710.jpg"class="profile-img" alt="Vijay Tripathi">
-        <img src="https://i.ibb.co/9HXRVpcc/IMG-20251217-164333-879.jpg" class="profile-img" alt="Vijay Tripathi">
-        <img src="https://i.ibb.co/8gdCrN0J/IMG-20251217-164245-710.jpg" class="profile-img" alt="Vijay Tripathi">
+        <img src="https://i.ibb.co/Csn1sGBw/IMG-20260112-112736-157.jpg" class="profile-img" alt="Vijay Tripathi">
+        <img src="https://i.ibb.co/JRVGwg4Y/IMG-20260112-112658-610.jpg" class="profile-img" alt="Vijay Tripathi">
+        <img src="https://i.ibb.co/3ySqMzPT/IMG-20260112-112642-503.jpg" class="profile-img" alt="Vijay Tripathi">
+        <img src="https://i.ibb.co/gM0c3xjL/IMG-20260112-112607-192.jpg" class="profile-img" alt="Vijay Tripathi">
       </div>
     </div>
   </div>
 </div>
 
 <div id="about" class="section content-wrapper" style="padding:20px;">
-  <div class="about-card"><h2>About Me</h2><p>BCA Student from India...</p></div>
+  <div class="about-card"><h2>About Me</h2><p>"Hey, I'm Vijay Tripathi! 👋
+A tech enthusiast currently pursuing BCA. I don't just write code; I build digital experiences. My world revolves around HTML, CSS, and JavaScript, turning blank screens into functional, beautiful websites. When I'm not debugging, I’m busy exploring the latest in web tech. Always up for a challenge and ready to collaborate!"</p></div>
 </div>
+
 
 <div id="skills" class="section content-wrapper" style="padding:20px;">
   <div class="about-card"><h2>Skills</h2><p>HTML, CSS, JS, GitHub, Firebase</p></div>
@@ -274,6 +282,37 @@ nav a.active, nav a:hover {
 <div id="contact" class="section content-wrapper" style="padding:20px;">
   <div class="about-card"><h2>Contact</h2><p>Email: vijay@example.com</p></div>
 </div>
+
+
+<a href="YOUR_RESUME_LINK" class="resume-btn" download>
+   <i class="fas fa-file-download"></i> Download My CV
+</a>
+
+<style>
+.resume-btn {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-top: 20px;
+    font-weight: bold;
+}
+</style>
+
+
+<div class="skills-section">
+  <h3>My Tech Stack</h3>
+  <div class="skills-icons">
+    <i class="fab fa-html5"></i>
+    <i class="fab fa-css3-alt"></i>
+    <i class="fab fa-js"></i>
+    <i class="fab fa-python"></i>
+  </div>
+</div>
+
+
 
 <footer class="site-footer">
   <p>© 2026 | Designed by <strong>Vijay Tripathi</strong></p>
