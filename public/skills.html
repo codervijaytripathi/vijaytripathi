@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Skills | Vijay Tripathi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<style>
+
+    .skills-page-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+.skills-header { text-align: center; margin-bottom: 30px; }
+.skills-header h1 { font-size: 28px; margin-bottom: 5px; }
+
+.skill-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.skill-card h3 { font-size: 18px; margin-bottom: 15px; color: #0077b5; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+
+/* Progress Bars */
+.skill-item { margin-bottom: 15px; }
+.skill-info { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; margin-bottom: 5px; }
+.bar { height: 8px; background: #f0f0f0; border-radius: 10px; overflow: hidden; }
+.progress { height: 100%; background: #0077b5; border-radius: 10px; }
+
+/* Grid for Soft Skills & Lang */
+.grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.soft-skills-list { list-style: none; padding: 0; }
+.soft-skills-list li { font-size: 14px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.soft-skills-list i { color: #28a745; }
+
+.lang-item { font-size: 14px; margin-bottom: 10px; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+
+/* Learning Banner */
+.learning-banner {
+    background: #e7f3ff;
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 5px solid #0077b5;
+    margin-top: 10px;
+}
+.learning-banner h3 { color: #0077b5; margin-bottom: 10px; }
+.learning-banner p { font-size: 14px; line-height: 1.6; }
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .grid-container { grid-template-columns: 1fr; }
+}
+.learning-banner {
+    border: 2px solid #0077b5;
+    background: linear-gradient(135deg, #e7f3ff 0%, #ffffff 100%);
+    box-shadow: 0 0 15px rgba(0, 119, 181, 0.1);
+}
+
+.learning-banner i {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+</style>
+
+<div class="skills-page-wrapper">
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    
+    <header class="skills-header">
+        <h1>Technical & Soft Skills</h1>
+        <p>Turning logic into code & ideas into reality.</p>
+    </header>
+
+    <section class="skill-card">
+        <h3><i class="fas fa-code"></i> Coding Skills</h3>
+        <div class="skill-item">
+            <div class="skill-info"><span>HTML5 / CSS3</span><span>85%</span></div>
+            <div class="bar"><div class="progress" style="width: 85%;"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>JavaScript (Basic)</span><span>60%</span></div>
+            <div class="bar"><div class="progress" style="width: 60%;"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>C / C++ (BCA)</span><span>70%</span></div>
+            <div class="bar"><div class="progress" style="width: 70%;"></div></div>
+        </div>
+    </section>
+
+    <div class="grid-container">
+        <section class="skill-card">
+            <h3><i class="fas fa-lightbulb"></i> Soft Skills</h3>
+            <ul class="soft-skills-list">
+                <li><i class="fas fa-check-circle"></i> Problem Solving</li>
+                <li><i class="fas fa-check-circle"></i> Adaptive Learning</li>
+                <li><i class="fas fa-check-circle"></i> Time Management</li>
+                <li><i class="fas fa-check-circle"></i> Team Collaboration</li>
+            </ul>
+        </section>
+
+        <section class="skill-card">
+            <h3><i class="fas fa-language"></i> Languages</h3>
+            <div class="lang-item">
+                <span><b>Hindi:</b> Fluent / Native</span>
+            </div>
+            <div class="lang-item">
+                <span><b>English:</b> Basic to Intermediate</span>
+            </div>
+        </section>
+    </div>
+
+    <section class="skill-card">
+    <h3><i class="fas fa-laptop-code"></i> Technical & Software Skills</h3>
+    
+    <div class="skill-item">
+        <div class="skill-info"><span>HTML5 / CSS3</span><span>85%</span></div>
+        <div class="bar"><div class="progress" style="width: 85%;"></div></div>
+    </div>
+
+    <div class="skill-item">
+        <div class="skill-info"><span>MS Office (Word, Excel, PPT)</span><span>80%</span></div>
+        <div class="bar"><div class="progress" style="width: 80%;"></div></div>
+    </div>
+
+    <div class="skill-item">
+        <div class="skill-info"><span>Tally Prime (Basic)</span><span>65%</span></div>
+        <div class="bar"><div class="progress" style="width: 65%;"></div></div>
+    </div>
+
+    <div class="skill-item">
+        <div class="skill-info"><span>JavaScript / C++</span><span>60%</span></div>
+        <div class="bar"><div class="progress" style="width: 60%;"></div></div>
+    </div>
+</section>
+
+<section class="learning-banner">
+    <h3><i class="fas fa-robot"></i> Future Focused: Learning AI</h3>
+    <p>AI is the future, and I am actively exploring <b>Generative AI tools</b> and basic <b>AI concepts</b> to understand how they can enhance web development and productivity. This is my journey of staying ahead in the tech world!</p>
+</section>
+
+    <section class="learning-banner">
+        <h3><i class="fas fa-sync-alt"></i> Currently Learning</h3>
+        <p>I am continuously improving my skills. Currently diving deep into <b>React.js</b> and <b>Advanced CSS Animations</b> to build more dynamic web experiences.</p>
+    </section>
+</div>
+
+</body>
+</html>
