@@ -1,330 +1,1131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<title>Vijay Tripathi | Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vijay Tripathi | Creative Developer</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0F172A',
+                        secondary: '#1E293B',
+                        accent: '#3B82F6',
+                        muted: '#64748B',
+                    }
+                }
+            }
+        }
+    </script>
 
-<style>
-/* ===== RESET & ROOT ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: #0F172A;
+            overflow-x: hidden;
+        }
 
-body {
-  background: #f0f2f5;
-  color: #1c1e21;
-}
+        /* Custom Cursor */
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #3B82F6;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s, background 0.2s;
+            mix-blend-mode: difference;
+        }
+        
+        .custom-cursor.hover {
+            transform: scale(2);
+            background: #3B82F6;
+        }
 
-/* ===== NAVBAR ===== */
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  padding: 15px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  backdrop-filter: blur(10px);
-}
+        /* Text Scramble Effect */
+        .scramble-text {
+            display: inline-block;
+        }
 
-nav a {
-  text-decoration: none;
-  color: #65676b;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-}
-  /* List ki default setting hatane ke liye */
-nav ul {
-    list-style: none;      /* Dots hatane ke liye */
-    display: flex;         /* Ek line mein lane ke liye */
-    flex-direction: row;   /* Side-by-side (Horizontal) karne ke liye */
-    gap: 20px;             /* Buttons ke beech space */
-    margin: 0;
-    padding: 0;
-    justify-content: center; /* Center mein rakhne ke liye */
-}
+        /* Hero Section - SAME AS BEFORE */
+        .hero-gradient {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f8fafc 100%);
+        }
 
-/* List items ke beech ka gap control karne ke liye */
-nav li {
-    display: inline-block;
-}
+        /* Magnetic Button */
+        .magnetic-btn {
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
 
-nav a.active, nav a:hover {
-  color: #0084ff;
-}
+        /* Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
 
-/* ===== HOME SECTION ===== */
-.section {
-  display: none;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-}
+        /* 3D Tilt Card */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+        }
+        
+        .tilt-content {
+            transform: translateZ(20px);
+        }
 
-/* BANNER & CARD */
-.banner {
-  height: 160px;
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.2);
-  font-size: 60px;
-  font-weight: 900;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
+        /* Marquee Animation */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
 
-.card {
-  background: #ffffff;
-  width: 92%;
-  margin: -40px auto 20px;
-  padding: 20px 15px;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  position: relative;
-}
+        /* Floating Animation */
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
 
-.profile-img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 4px solid #fff;
-  margin-top: -70px;
-  object-fit: cover;
-  background: #ddd;
-}
+        /* Gradient Border */
+        .gradient-border {
+            position: relative;
+            background: white;
+            border-radius: 16px;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            background: linear-gradient(45deg, #3B82F6, #8B5CF6, #EC4899);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gradient-border:hover::before {
+            opacity: 1;
+        }
 
-/* VERIFIED TICK FIX */
-.profile-name {
-  font-size: 22px;
-  font-weight: 700;
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
+        /* Skill Orbit */
+        .orbit-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+        
+        .orbit-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: #3B82F6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            z-index: 10;
+        }
+        
+        .orbit-item {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+        
+        .orbit-item:hover {
+            transform: scale(1.2);
+            z-index: 20;
+        }
 
-.verified-badge {
-  background-color: #000;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
+        /* Timeline */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #3B82F6, #8B5CF6, #EC4899);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: white;
+            border: 3px solid #3B82F6;
+            border-radius: 50%;
+            z-index: 10;
+        }
 
-.verified-badge i {
-  color: #fff;
-  font-size: 10px;
-}
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-.card p {
-  color: #65676b;
-  font-size: 14px;
-  margin-top: 4px;
-}
+        /* Photo Stack */
+        .photo-stack {
+            position: relative;
+        }
+        
+        .photo-stack img {
+            position: absolute;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .photo-stack:hover img:nth-child(1) { transform: rotate(-5deg) translateX(-20px); }
+        .photo-stack:hover img:nth-child(2) { transform: rotate(5deg) translateX(20px) translateY(-10px); }
+        .photo-stack:hover img:nth-child(3) { transform: rotate(-3deg) translateY(20px); }
 
-/* ===== ABOUT & SOCIAL ===== */
-.content-wrapper {
-  width: 92%;
-  max-width: 800px;
-  margin: 0 auto;
-}
+        /* Professional Footer */
+        .footer-main {
+            background: #0F172A;
+            color: #94A3B8;
+        }
+        
+        .footer-heading {
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-link {
+            color: #94A3B8;
+            transition: all 0.3s;
+            display: block;
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 0;
+        }
+        
+        .footer-link:hover {
+            color: #60A5FA;
+            padding-left: 10px;
+        }
+        
+        .footer-link::before {
+            content: '→';
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        
+        .footer-link:hover::before {
+            left: 0;
+            opacity: 1;
+        }
 
-.about-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-  margin-bottom: 20px;
-}
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            background: #1E293B;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94A3B8;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .social-icon:hover::before {
+            opacity: 1;
+        }
+        
+        .social-icon i {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-icon:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
 
-.social-links {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 10px;
-    margin-top: 20px;
-    overflow-x: auto;
-    padding-bottom: 5px;
-}
+        .newsletter-input {
+            background: #1E293B;
+            border: 1px solid #334155;
+            color: white;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            border-color: #3B82F6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
 
-/* Button Styling */
-.social {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 13px;
-  padding: 8px 15px;
-  border-radius: 20px;
-  white-space: nowrap;
-}
+        .newsletter-btn {
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .newsletter-btn:hover::before {
+            left: 100%;
+        }
+        
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
 
-.facebook { color: #1877f2; background: #e7f3ff; }
-.instagram { color: #e1306c; background: #fff0f5; }
-.github { color: #000; background: #f2f2f2; }
-.linkedin { color: #0077b5; background: #e0f3ff; }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
 
-/* ===== PHOTO GRID UPDATED ===== */
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  margin-top: 20px;
-}
+        /* Nav Link Effect */
+        .nav-link {
+            position: relative;
+            color: #64748B;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #0F172A;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
 
-.photo-grid img {
-  height: 300px;
-  width: 100%;
-  aspect-ratio: 1/1;
-  border-radius: 13px;
-  
-  /* Sir katne se rokne ke liye ye badlav */
-  object-fit: cover; 
-  object-position: top; /* Isse focus sir/top part par rahega */
-  
-  /* Thoda styling ke liye (Optional) */
-  transition: transform 0.3s ease;
-  border: 1px solid #eee;
-}
-
-/* Jab koi photo par click/hover kare toh thodi zoom ho */
-.photo-grid img:hover {
-  transform: scale(1.02);
-}
-/* ===== FOOTER ===== */
-.site-footer {
-  text-align: center;
-  padding: 30px 10px;
-  color: #65676b;
-  font-size: 13px;
-}
-
-/* ===== MOBILE ADJUSTMENTS ===== */
-@media (max-width: 600px) {
-  .banner { height: 120px; font-size: 40px; }
-  .card { width: 95%; padding: 15px 10px; }
-  .profile-name { font-size: 20px; }
-  nav { gap: 10px; padding: 12px 5px; }
-  nav a { font-size: 12px; }
-}
-.skills-section { text-align: center; margin: 30px 0; }
-.skills-icons { font-size: 40px; display: flex; justify-content: center; gap: 20px; color: #555; }
-.skills-icons i:hover { color: #0077b5; transform: scale(1.2); transition: 0.3s; }
-</style>
+        /* Section Title */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+            border-radius: 2px;
+        }
+    </style>
+<base target="_blank">
 </head>
+<body class="antialiased">
 
-<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="cursor"></div>
 
-<nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="skills.html">skills</a></li>
-    <li><a href="portfolio.html">portfolio</a></li>
-    <li><a href="contact.html">contact</a></li>
-  </ul>
-</nav>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="text-2xl font-display font-bold text-primary tracking-tight magnetic-btn">
+                    Vijay<span class="text-accent">.</span>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-sm font-medium magnetic-btn">Home</a>
+                    <a href="#about" class="nav-link text-sm font-medium magnetic-btn">About</a>
+                    <a href="#skills" class="nav-link text-sm font-medium magnetic-btn">Skills</a>
+                    <a href="#portfolio" class="nav-link text-sm font-medium magnetic-btn">Portfolio</a>
+                    <a href="#contact" class="nav-link text-sm font-medium magnetic-btn">Contact</a>
+                    <a href="#contact" class="magnetic-btn px-6 py-3 bg-primary text-white rounded-full text-sm font-medium hover:bg-secondary transition-all ml-4">
+                        Hire Me
+                    </a>
+                </div>
 
-<div id="home" class="section" style="display:block">
-  <div class="banner">VT</div>
-  <div class="card">
-    <img src="https://i.ibb.co/8LxhJ5qM/20260111-135349.png" class="profile-img" alt="Vijay Tripathi">
-    <h1 class="profile-name">
-      Vijay Tripathi
-      <span class="verified-badge"><i class="fas fa-check"></i></span>
-    </h1>
-    <p>BCA Student | Web Developer</p>
-  </div>
+                <button class="md:hidden text-2xl text-primary magnetic-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
+            <div class="px-6 py-4 space-y-3">
+                <a href="#home" class="block text-muted hover:text-primary py-2 font-medium" onclick="toggleMobileMenu()">Home</a>
+                <a href="#about" class="block text-muted hover:text-primary py-2 font-medium" onclick="toggleMobileMenu()">About</a>
+                <a href="#skills" class="block text-muted hover:text-primary py-2 font-medium" onclick="toggleMobileMenu()">Skills</a>
+                <a href="#portfolio" class="block text-muted hover:text-primary py-2 font-medium" onclick="toggleMobileMenu()">Portfolio</a>
+                <a href="#contact" class="block text-muted hover:text-primary py-2 font-medium" onclick="toggleMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-  <div class="content-wrapper">
-    <div class="about-card">
-      <h3 style="margin-bottom:10px;">About</h3>
-      <p style="font-size:14px; color:#444; line-height:1.5;">
-        <strong>Vijay Tripathi</strong> "Passionate <B>BCA student</B> and aspiring <B>Web Developer</B> with a knack for building clean, user-friendly, and responsive websites. I love turning complex problems into simple, beautiful interface designs. Constantly learning new technologies to stay ahead in the digital world."
-      </p>
-      
-      <div class="social-links">
-        <a href="https://www.facebook.com/share/1DUqsDfSYy/" class="social facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
-        <a href="https://www.instagram.com/thevijaytripathi?igsh=ZnZyaHQyaDNuazA2" class="social instagram"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="https://github.com/codervijaytripathi" class="social github"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://www.linkedin.com/in/vijay-tripathi-6a1980382?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social linkedin"><i class="fab fa-linkedin "></i> linkedin</a>
+    <!-- HERO SECTION - SAME AS BEFORE -->
+    <section id="home" class="min-h-screen pt-32 pb-20 lg:pt-40 lg:pb-32 px-6 hero-gradient relative overflow-hidden">
+        <!-- Floating Background Elements -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 float"></div>
+        <div class="absolute top-40 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 float" style="animation-delay: -2s;"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur rounded-full text-sm font-medium text-accent mb-6 border border-blue-100 shadow-sm">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                        Available for freelance work
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-display font-bold text-primary leading-tight mb-6">
+                        Hi, I'm <span class="text-accent scramble-text" id="scramble-name">Vijay Tripathi</span>
+                    </h1>
+                    
+                    <p class="text-xl text-muted mb-8 leading-relaxed max-w-lg">
+                        BCA Student & Web Developer crafting digital experiences with clean code and modern design.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#portfolio" class="magnetic-btn px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-secondary transition-all shadow-lg hover:shadow-xl">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="magnetic-btn px-8 py-4 border-2 border-slate-200 text-primary rounded-full font-medium hover:border-primary transition-all">
+                            Download CV
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-6 mt-12">
+                        <a href="https://github.com/codervijaytripathi" target="_blank" class="text-muted hover:text-primary transition text-2xl magnetic-btn">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/vijay-tripathi-6a1980382" target="_blank" class="text-muted hover:text-primary transition text-2xl magnetic-btn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/thevijaytripathi" target="_blank" class="text-muted hover:text-primary transition text-2xl magnetic-btn">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="reveal flex justify-center relative">
+                    <div class="relative w-80 h-80">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-3xl opacity-30 float"></div>
+                        <img src="https://i.ibb.co/8LxhJ5qM/20260111-135349.png" 
+                             alt="Vijay Tripathi" 
+                             class="relative w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-white">
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-4 -right-4 glass-card px-6 py-3 rounded-2xl float" style="animation-delay: -1s;">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                                <span class="font-semibold text-sm">Open to Work</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      </div>
+    <!-- UNIQUE: Marquee Text Strip -->
+    <div class="bg-primary py-4 overflow-hidden">
+        <div class="marquee-container">
+            <div class="marquee-content text-white font-display text-xl font-bold tracking-wider">
+                WEB DEVELOPER • UI/UX DESIGNER • PROBLEM SOLVER • CREATIVE THINKER • BCA STUDENT • WEB DEVELOPER • UI/UX DESIGNER • PROBLEM SOLVER • CREATIVE THINKER • BCA STUDENT •
+            </div>
+        </div>
     </div>
 
-    <div class="about-card">
-      <h3 style="margin-bottom:10px;">My Photos</h3>
-      <div class="photo-grid">
-       <img src="https://i.ibb.co/5gfv4sYq/IMG-20260112-112555-580.jpg" class="profile-img" alt="Vijay Tripathi">
-        <img src="https://i.ibb.co/ccTXw8JP/IMG-20251217-164342-710.jpg"class="profile-img" alt="Vijay Tripathi">
-        <img src="https://i.ibb.co/Csn1sGBw/IMG-20260112-112736-157.jpg" class="profile-img" alt="Vijay Tripathi">
-        <img src="https://i.ibb.co/JRVGwg4Y/IMG-20260112-112658-610.jpg" class="profile-img" alt="Vijay Tripathi">
-        <img src="https://i.ibb.co/3ySqMzPT/IMG-20260112-112642-503.jpg" class="profile-img" alt="Vijay Tripathi">
-        <img src="https://i.ibb.co/gM0c3xjL/IMG-20260112-112607-192.jpg" class="profile-img" alt="Vijay Tripathi">
-      </div>
+    <!-- UNIQUE: About Section with 3D Tilt Cards -->
+    <section id="about" class="py-24 lg:py-32 px-6 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <p class="text-accent font-medium mb-2 tracking-wider uppercase text-sm">About Me</p>
+                    <h2 class="section-title text-4xl lg:text-5xl font-display font-bold text-primary mb-6">
+                        Developer, Student,<br>Problem Solver
+                    </h2>
+                    
+                    <p class="text-muted text-lg leading-relaxed mb-6">
+                        I'm a passionate <strong class="text-primary">BCA student</strong> and aspiring <strong class="text-primary">Web Developer</strong> with a knack for building clean, user-friendly, and responsive websites.
+                    </p>
+                    
+                    <p class="text-muted leading-relaxed mb-8">
+                        I don't just write code; I craft digital experiences. My world revolves around HTML, CSS, and JavaScript, turning blank screens into functional, beautiful interface designs.
+                    </p>
+
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="text-center p-4 glass-card rounded-2xl tilt-card" data-tilt>
+                            <div class="tilt-content text-3xl font-display font-bold text-accent mb-1">2+</div>
+                            <div class="tilt-content text-sm text-muted">Years Exp.</div>
+                        </div>
+                        <div class="text-center p-4 glass-card rounded-2xl tilt-card" data-tilt>
+                            <div class="tilt-content text-3xl font-display font-bold text-accent mb-1">10+</div>
+                            <div class="tilt-content text-sm text-muted">Projects</div>
+                        </div>
+                        <div class="text-center p-4 glass-card rounded-2xl tilt-card" data-tilt>
+                            <div class="tilt-content text-3xl font-display font-bold text-accent mb-1">100%</div>
+                            <div class="tilt-content text-sm text-muted">Commitment</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <div class="relative">
+                        <img src="https://i.ibb.co/ccTXw8JP/IMG-20251217-164342-710.jpg" 
+                             alt="About" 
+                             class="rounded-3xl shadow-2xl w-full object-cover h-[500px]">
+                        
+                        <!-- Experience Badge -->
+                        <div class="absolute -top-6 -left-6 glass-card p-4 rounded-2xl float">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-primary">Clean Code</div>
+                                    <div class="text-xs text-muted">Always</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIQUE: Skills with Orbital Animation -->
+    <section id="skills" class="py-24 lg:py-32 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="text-accent font-medium mb-2 tracking-wider uppercase text-sm">Expertise</p>
+                <h2 class="section-title text-4xl lg:text-5xl font-display font-bold text-primary mb-4">
+                    Technical Skills
+                </h2>
+                <p class="text-muted max-w-2xl mx-auto">Technologies I use to bring ideas to life</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-16">
+                <!-- Orbital Skills -->
+                <div class="orbit-container reveal" id="orbit-container">
+                    <div class="orbit-center">VT</div>
+                    <div class="orbit-item" style="animation: orbit 20s linear infinite; animation-delay: 0s;">HTML5</div>
+                    <div class="orbit-item" style="animation: orbit 20s linear infinite; animation-delay: -2.5s;">CSS3</div>
+                    <div class="orbit-item" style="animation: orbit 20s linear infinite; animation-delay: -5s;">JS</div>
+                    <div class="orbit-item" style="animation: orbit 20s linear infinite; animation-delay: -7.5s;">Python</div>
+                    <div class="orbit-item" style="animation: orbit 20s linear infinite; animation-delay: -10s;">Git</div>
+                    <div class="orbit-item" style="animation: orbit 20s linear infinite; animation-delay: -12.5s;">Firebase</div>
+                    <div class="orbit-item" style="animation: orbit 20s linear infinite; animation-delay: -15s;">React</div>
+                    <div class="orbit-item" style="animation: orbit 20s linear infinite; animation-delay: -17.5s;">Node</div>
+                </div>
+
+                <!-- Skill Bars -->
+                <div class="w-full max-w-md space-y-6 reveal">
+                    <div class="gradient-border p-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-primary">Frontend Development</span>
+                            <span class="text-accent font-bold">95%</span>
+                        </div>
+                        <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="gradient-border p-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-primary">Backend Basics</span>
+                            <span class="text-accent font-bold">75%</span>
+                        </div>
+                        <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="gradient-border p-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-primary">UI/UX Design</span>
+                            <span class="text-accent font-bold">85%</span>
+                        </div>
+                        <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIQUE: Portfolio with Horizontal Scroll -->
+    <section id="portfolio" class="py-24 lg:py-32 px-6 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12 reveal">
+                <div>
+                    <p class="text-accent font-medium mb-2 tracking-wider uppercase text-sm">Portfolio</p>
+                    <h2 class="section-title text-4xl lg:text-5xl font-display font-bold text-primary">
+                        Featured Projects
+                    </h2>
+                </div>
+                <div class="flex gap-4 mt-6 md:mt-0">
+                    <button onclick="scrollPortfolio('left')" class="w-12 h-12 rounded-full border-2 border-slate-200 flex items-center justify-center hover:border-primary hover:bg-primary hover:text-white transition-all magnetic-btn">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button onclick="scrollPortfolio('right')" class="w-12 h-12 rounded-full border-2 border-slate-200 flex items-center justify-center hover:border-primary hover:bg-primary hover:text-white transition-all magnetic-btn">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide" id="portfolio-scroll" style="scrollbar-width: none; -ms-overflow-style: none;">
+                <!-- Project 1 -->
+                <div class="min-w-[350px] md:min-w-[400px] snap-center reveal">
+                    <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer">
+                        <div class="h-64 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-shopping-cart text-8xl text-white/20 group-hover:scale-110 transition-transform duration-500"></i>
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-display font-bold text-primary mb-2">E-Commerce Platform</h3>
+                            <p class="text-muted text-sm mb-4">Full-stack shopping experience with Firebase backend</p>
+                            <div class="flex gap-2">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-medium">HTML</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-medium">CSS</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-medium">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="min-w-[350px] md:min-w-[400px] snap-center reveal" style="transition-delay: 0.1s;">
+                    <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer">
+                        <div class="h-64 bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-utensils text-8xl text-white/20 group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-display font-bold text-primary mb-2">Restaurant Website</h3>
+                            <p class="text-muted text-sm mb-4">Responsive landing with reservation system</p>
+                            <div class="flex gap-2">
+                                <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-xs font-medium">HTML5</span>
+                                <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-xs font-medium">CSS3</span>
+                                <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-xs font-medium">JS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="min-w-[350px] md:min-w-[400px] snap-center reveal" style="transition-delay: 0.2s;">
+                    <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer">
+                        <div class="h-64 bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-tasks text-8xl text-white/20 group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-display font-bold text-primary mb-2">Task Manager</h3>
+                            <p class="text-muted text-sm mb-4">Interactive todo app with local storage</p>
+                            <div class="flex gap-2">
+                                <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-xs font-medium">JavaScript</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-xs font-medium">LocalStorage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="min-w-[350px] md:min-w-[400px] snap-center reveal" style="transition-delay: 0.3s;">
+                    <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer">
+                        <div class="h-64 bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-portfolio text-8xl text-white/20 group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-display font-bold text-primary mb-2">Portfolio V2</h3>
+                            <p class="text-muted text-sm mb-4">Creative portfolio with animations</p>
+                            <div class="flex gap-2">
+                                <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-xs font-medium">React</span>
+                                <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-xs font-medium">GSAP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIQUE: Photo Gallery with Stack Effect -->
+    <section class="py-24 lg:py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="text-accent font-medium mb-2 tracking-wider uppercase text-sm">Gallery</p>
+                <h2 class="section-title text-4xl lg:text-5xl font-display font-bold text-primary mb-4">
+                    Photo Collection
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <div class="photo-stack w-full h-[400px] relative">
+                        <img src="https://i.ibb.co/5gfv4sYq/IMG-20260112-112555-580.jpg" 
+                             class="w-64 h-64 object-cover rounded-2xl top-0 left-0 z-30 cursor-pointer"
+                             onclick="openLightbox(0)">
+                        <img src="https://i.ibb.co/ccTXw8JP/IMG-20251217-164342-710.jpg" 
+                             class="w-64 h-64 object-cover rounded-2xl top-8 left-8 z-20 cursor-pointer"
+                             onclick="openLightbox(1)">
+                        <img src="https://i.ibb.co/Csn1sGBw/IMG-20260112-112736-157.jpg" 
+                             class="w-64 h-64 object-cover rounded-2xl top-16 left-16 z-10 cursor-pointer"
+                             onclick="openLightbox(2)">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 reveal">
+                    <img src="https://i.ibb.co/JRVGwg4Y/IMG-20260112-112658-610.jpg" 
+                         class="w-full h-48 object-cover rounded-2xl hover:scale-105 transition-transform cursor-pointer"
+                         onclick="openLightbox(3)">
+                    <img src="https://i.ibb.co/3ySqMzPT/IMG-20260112-112642-503.jpg" 
+                         class="w-full h-48 object-cover rounded-2xl hover:scale-105 transition-transform cursor-pointer mt-8"
+                         onclick="openLightbox(4)">
+                    <img src="https://i.ibb.co/gM0c3xjL/IMG-20260112-112607-192.jpg" 
+                         class="w-full h-48 object-cover rounded-2xl hover:scale-105 transition-transform cursor-pointer col-span-2"
+                         onclick="openLightbox(5)">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 lg:py-32 px-6 bg-slate-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="text-accent font-medium mb-2 tracking-wider uppercase text-sm">Contact</p>
+                <h2 class="section-title text-4xl lg:text-5xl font-display font-bold text-primary mb-4">
+                    Let's Work Together
+                </h2>
+            </div>
+
+            <div class="glass-card rounded-3xl p-8 md:p-12 reveal">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center text-accent text-xl">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-primary mb-1">Email</h4>
+                                <p class="text-muted">vijay@example.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center text-accent text-xl">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-primary mb-1">Location</h4>
+                                <p class="text-muted">India</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 pt-4">
+                            <a href="https://www.facebook.com/share/1DUqsDfSYy/" target="_blank" class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/thevijaytripathi" target="_blank" class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://github.com/codervijaytripathi" target="_blank" class="social-icon">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/vijay-tripathi-6a1980382" target="_blank" class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message sent!');">
+                        <input type="text" placeholder="Your Name" class="w-full px-4 py-4 rounded-xl border border-slate-200 focus:border-accent focus:outline-none transition-all" required>
+                        <input type="email" placeholder="Your Email" class="w-full px-4 py-4 rounded-xl border border-slate-200 focus:border-accent focus:outline-none transition-all" required>
+                        <textarea rows="4" placeholder="Your Message" class="w-full px-4 py-4 rounded-xl border border-slate-200 focus:border-accent focus:outline-none transition-all resize-none" required></textarea>
+                        <button type="submit" class="w-full py-4 bg-primary text-white rounded-xl font-semibold hover:bg-secondary transition-all magnetic-btn">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROFESSIONAL FOOTER -->
+    <footer class="footer-main pt-20 pb-8">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand -->
+                <div class="lg:col-span-1">
+                    <a href="#" class="text-3xl font-display font-bold text-white tracking-tight mb-6 inline-block">
+                        Vijay<span class="text-accent">.</span>
+                    </a>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Building digital experiences with passion and precision. Specialized in modern web development and creative solutions.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="https://www.facebook.com/share/1DUqsDfSYy/" target="_blank" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/thevijaytripathi" target="_blank" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://github.com/codervijaytripathi" target="_blank" class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/vijay-tripathi-6a1980382" target="_blank" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <a href="#home" class="footer-link">Home</a>
+                    <a href="#about" class="footer-link">About Me</a>
+                    <a href="#skills" class="footer-link">Skills</a>
+                    <a href="#portfolio" class="footer-link">Portfolio</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <a href="#" class="footer-link">Web Development</a>
+                    <a href="#" class="footer-link">UI/UX Design</a>
+                    <a href="#" class="footer-link">Responsive Design</a>
+                    <a href="#" class="footer-link">Frontend Dev</a>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="footer-heading">Stay Updated</h4>
+                    <p class="text-slate-400 text-sm mb-4">Subscribe for latest tech insights and updates.</p>
+                    <form class="space-y-3" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                        <input type="email" placeholder="Enter email" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-btn w-full">
+                            Subscribe <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-400 text-sm">
+                    © 2026 Vijay Tripathi. All rights reserved.
+                </p>
+                <div class="flex gap-6 text-sm text-slate-400">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
     </div>
-  </div>
-</div>
 
-<div id="about" class="section content-wrapper" style="padding:20px;">
-  <div class="about-card"><h2>About Me</h2><p>"Hey, I'm Vijay Tripathi! 👋
-A tech enthusiast currently pursuing BCA. I don't just write code; I build digital experiences. My world revolves around HTML, CSS, and JavaScript, turning blank screens into functional, beautiful websites. When I'm not debugging, I’m busy exploring the latest in web tech. Always up for a challenge and ready to collaborate!"</p></div>
-</div>
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 z-[60] hidden bg-black/95 flex items-center justify-center p-4" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl transition">
+            <i class="fas fa-times"></i>
+        </button>
+        <img id="lightbox-img" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg">
+    </div>
 
+    <style>
+        @keyframes orbit {
+            from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+        }
+    </style>
 
-<div id="skills" class="section content-wrapper" style="padding:20px;">
-  <div class="about-card"><h2>Skills</h2><p>HTML, CSS, JS, GitHub, Firebase</p></div>
-</div>
+    <script>
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        const magneticElements = document.querySelectorAll('.magnetic-btn');
 
-<div id="portfolio" class="section content-wrapper" style="padding:20px;">
-  <div class="about-card"><h2>Portfolio</h2><p>Personal projects hosted on Firebase...</p></div>
-</div>
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+        });
 
-<div id="contact" class="section content-wrapper" style="padding:20px;">
-  <div class="about-card"><h2>Contact</h2><p>Email: vijay@example.com</p></div>
-</div>
+        magneticElements.forEach(elem => {
+            elem.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            elem.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
 
-  <div class="skills-section">
-  <h3>My Tech Stack</h3>
-  <div class="skills-icons">
-    <i class="fab fa-html5"></i>
-    <i class="fab fa-css3-alt"></i>
-    <i class="fab fa-js"></i>
-    <i class="fab fa-python"></i>
-  </div>
-</div>
+        // Mobile Menu
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
 
+        // Text Scramble Effect
+        class TextScramble {
+            constructor(el) {
+                this.el = el;
+                this.chars = '!<>-_\\/[]{}—=+*^?#________';
+                this.update = this.update.bind(this);
+            }
+            setText(newText) {
+                const oldText = this.el.innerText;
+                const length = Math.max(oldText.length, newText.length);
+                const promise = new Promise((resolve) => this.resolve = resolve);
+                this.queue = [];
+                for (let i = 0; i < length; i++) {
+                    const from = oldText[i] || '';
+                    const to = newText[i] || '';
+                    const start = Math.floor(Math.random() * 40);
+                    const end = start + Math.floor(Math.random() * 40);
+                    this.queue.push({ from, to, start, end });
+                }
+                cancelAnimationFrame(this.frameRequest);
+                this.frame = 0;
+                this.update();
+                return promise;
+            }
+            update() {
+                let output = '';
+                let complete = 0;
+                for (let i = 0, n = this.queue.length; i < n; i++) {
+                    let { from, to, start, end, char } = this.queue[i];
+                    if (this.frame >= end) {
+                        complete++;
+                        output += to;
+                    } else if (this.frame >= start) {
+                        if (!char || Math.random() < 0.28) {
+                            char = this.randomChar();
+                            this.queue[i].char = char;
+                        }
+                        output += `<span class="text-accent">${char}</span>`;
+                    } else {
+                        output += from;
+                    }
+                }
+                this.el.innerHTML = output;
+                if (complete === this.queue.length) {
+                    this.resolve();
+                } else {
+                    this.frameRequest = requestAnimationFrame(this.update);
+                    this.frame++;
+                }
+            }
+            randomChar() {
+                return this.chars[Math.floor(Math.random() * this.chars.length)];
+            }
+        }
 
+        // Initialize Scramble
+        const el = document.getElementById('scramble-name');
+        const fx = new TextScramble(el);
+        let counter = 0;
+        const phrases = ['Vijay Tripathi', 'Web Developer', 'BCA Student', 'Problem Solver'];
+        const next = () => {
+            fx.setText(phrases[counter]).then(() => {
+                setTimeout(next, 2000);
+            });
+            counter = (counter + 1) % phrases.length;
+        };
+        next();
 
-<footer class="site-footer">
-  <p>© 2026 | Designed by <strong>Vijay Tripathi</strong></p>
-</footer>
+        // 3D Tilt Effect
+        document.querySelectorAll('[data-tilt]').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
 
-<script>
-function showTab(tabId){
-  document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
-  document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
-  document.getElementById(tabId).style.display = 'block';
-  event.currentTarget.classList.add('active');
-  window.scrollTo(0,0);
-}
-</script>
+        // Portfolio Scroll
+        function scrollPortfolio(direction) {
+            const container = document.getElementById('portfolio-scroll');
+            const scrollAmount = 400;
+            if (direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
 
+        // Lightbox
+        const images = [
+            "https://i.ibb.co/5gfv4sYq/IMG-20260112-112555-580.jpg",
+            "https://i.ibb.co/ccTXw8JP/IMG-20251217-164342-710.jpg",
+            "https://i.ibb.co/Csn1sGBw/IMG-20260112-112736-157.jpg",
+            "https://i.ibb.co/JRVGwg4Y/IMG-20260112-112658-610.jpg",
+            "https://i.ibb.co/3ySqMzPT/IMG-20260112-112642-503.jpg",
+            "https://i.ibb.co/gM0c3xjL/IMG-20260112-112607-192.jpg"
+        ];
+
+        function openLightbox(index) {
+            document.getElementById('lightbox-img').src = images[index];
+            document.getElementById('lightbox').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+
+        // Back to Top
+        window.addEventListener('scroll', () => {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Reveal on Scroll
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Active Nav Link
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('section').forEach(section => {
+                if (scrollY >= section.offsetTop - 200) current = section.getAttribute('id');
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
